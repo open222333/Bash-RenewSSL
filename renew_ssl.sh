@@ -6,12 +6,14 @@ if [[ $1 ]]; then
 	echo "DOMAIN: $DOMAIN"
 
 	if [[ $CLI_INI ]]; then
-		cd /etc/letsencrypt && certbot -c {$CLI_INI} renew --quiet --dns-cloudflare --force-renew --no-autorenew --cert-name $DOMAIN
+		cd /etc/letsencrypt
+		certbot -c {$CLI_INI} renew --quiet --dns-cloudflare --force-renew --no-autorenew --cert-name $DOMAIN
 		git add .
 		git commit -m 刷新證書
 		git push
 	else
-		cd /etc/letsencrypt && certbot renew --quiet --dns-cloudflare --force-renew --no-autorenew --cert-name $DOMAIN
+		cd /etc/letsencrypt
+		certbot renew --quiet --dns-cloudflare --force-renew --no-autorenew --cert-name $DOMAIN
 		git add .
 		git commit -m 刷新證書
 		git push
