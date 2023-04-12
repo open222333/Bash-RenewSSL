@@ -7,7 +7,7 @@ if [[ $1 ]]; then
 
 	if [[ $CLI_INI ]]; then
 		cd /etc/letsencrypt
-		certbot -c {$CLI_INI} renew --quiet --dns-cloudflare --force-renew --no-autorenew --cert-name $DOMAIN
+		certbot -c $CLI_INI renew --quiet --dns-cloudflare --force-renew --no-autorenew --cert-name $DOMAIN
 		git add .
 		git commit -m 刷新證書
 		git push
