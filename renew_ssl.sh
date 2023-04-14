@@ -19,8 +19,7 @@ if [[ $1 ]]; then
 		git push
 	fi
 
-	rsync -Pavr -e "sshpass -p$HOST_PASSWORD ssh" /etc/letsencrypt/archive/$DOMAIN root@$HOST_IP:/etc/letsencrypt/archive/$DOMAIN
-	rsync -Pavr -e "sshpass -p$HOST_PASSWORD ssh" /etc/letsencrypt/live/$DOMAIN root@$HOST_IP:/etc/letsencrypt/live/$DOMAIN
+
 else
 	echo "需指定參數 domain"
 fi
